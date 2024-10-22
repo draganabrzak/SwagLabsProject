@@ -16,6 +16,7 @@ public class BaseTest {
     public CartPage cartPage;
     public InformationForm informationForm;
     public Checkoutpage checkoutpage;
+    public OverViewPage overViewPage;
 
     public ExcelReader excelReader;
 
@@ -33,6 +34,7 @@ public class BaseTest {
         cartPage = new CartPage();
         informationForm = new InformationForm();
         checkoutpage = new Checkoutpage();
+        overViewPage = new OverViewPage();
     }
 
 }

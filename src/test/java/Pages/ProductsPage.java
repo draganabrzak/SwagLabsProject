@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -23,8 +24,6 @@ public class ProductsPage extends BaseTest {
     @FindBy(className = "btn_secondary")
     public List<WebElement> removeButton;
 
-    @FindBy(id = "shopping_cart_container")
-    public WebElement cartIcon;
 
     @FindBy(className = "shopping_cart_badge")
     public WebElement cartNumber;
@@ -70,6 +69,17 @@ public class ProductsPage extends BaseTest {
             }
         }
 
+    }
+    public void emptyCart() {
+        boolean emptyCart = false;
+
+        try {
+            productsPage.cartNumber.isDisplayed();
+        }catch (Exception e) {
+            emptyCart = true;
+        }
+
+        Assert.assertTrue(emptyCart);
     }
 
 

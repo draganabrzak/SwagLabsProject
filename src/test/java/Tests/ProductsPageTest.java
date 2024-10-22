@@ -18,21 +18,11 @@ public class ProductsPageTest extends BaseTest {
         loginPage.enterLoginButton();
     }
 
-    public void emptyCart() {
-        boolean emptyCart = false;
 
-        try {
-            productsPage.cartNumber.isDisplayed();
-        }catch (Exception e) {
-            emptyCart = true;
-        }
-
-        Assert.assertTrue(emptyCart);
-    }
 
     @Test
     public void userCanAddProductToCartWhenClicksAddButton() {
-        emptyCart();
+        productsPage.emptyCart();
         productsPage.clickOnAddButton(0);
         Assert.assertEquals(productsPage.cartNumber.getText(),"1");
 
@@ -43,7 +33,7 @@ public class ProductsPageTest extends BaseTest {
 
     @Test
     public void userCanAddMultipleProducts() {
-        emptyCart();
+        productsPage.emptyCart();
         productsPage.clickOnAddButton(0);
         productsPage.clickOnAddButton(1);
         Assert.assertEquals(productsPage.cartNumber.getText(),"2");
@@ -53,11 +43,11 @@ public class ProductsPageTest extends BaseTest {
 
     @Test
     public void userCanRemoveProduct() {
-        emptyCart();
+        productsPage.emptyCart();
         productsPage.clickOnAddButton(0);
         Assert.assertEquals(productsPage.cartNumber.getText(),"1");
         productsPage.clickOnRemoveButton(0);
-        emptyCart();
+        productsPage.emptyCart();
 
 
 
