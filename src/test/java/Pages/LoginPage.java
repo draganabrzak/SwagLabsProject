@@ -28,6 +28,7 @@ public class LoginPage extends BaseTest {
     @FindBy(className = "error-button")
     public WebElement errorMessage;
 
+
     //---------------------------------
 
     public void inputUsernameField(String username){
