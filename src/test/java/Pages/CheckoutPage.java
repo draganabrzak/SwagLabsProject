@@ -3,9 +3,9 @@ package Pages;
 import Base.BaseTest;
 import org.openqa.selenium.support.PageFactory;
 
-public class Checkoutpage extends BaseTest {
+public class CheckoutPage extends BaseTest {
 
-    public Checkoutpage() {
+    public CheckoutPage() {
         PageFactory.initElements(driver, this);
     }
 }
