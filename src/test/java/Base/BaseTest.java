@@ -15,7 +15,6 @@ public class BaseTest {
     public SidebarMenu sidebarMenu;
     public CartPage cartPage;
     public InformationForm informationForm;
-    public CheckoutPage checkoutpage;
     public OverViewPage overViewPage;
 
     public ExcelReader excelReader;
@@ -33,7 +32,6 @@ public class BaseTest {
         sidebarMenu = new SidebarMenu();
         cartPage = new CartPage();
         informationForm = new InformationForm();
-        checkoutpage = new CheckoutPage();
         overViewPage = new OverViewPage();
     }
 

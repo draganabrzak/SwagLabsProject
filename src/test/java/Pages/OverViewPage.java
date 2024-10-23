@@ -13,4 +13,20 @@ public class OverViewPage extends BaseTest {
     @FindBy(id = "finish")
     public WebElement finishButton;
 
+    @FindBy(className = "complete-header")
+    public WebElement confirmationMessage;
+
+    @FindBy(id = "back-to-products")
+    public WebElement backHomeButton;
+
+    //--------------------------------
+
+    public void clickOnFinishButton() {
+        finishButton.click();
+    }
+
+    public void clickOnBackHomeButton() {
+        backHomeButton.click();
+    }
+
 }

@@ -1,6 +1,7 @@
 package Tests;
 
 import Base.BaseTest;
+import com.sun.source.tree.Tree;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -19,13 +20,11 @@ public class ProductsPageTest extends BaseTest {
     }
 
 
-
     @Test
     public void userCanAddProductToCartWhenClicksAddButton() {
         productsPage.emptyCart();
         productsPage.clickOnAddButton(0);
-        Assert.assertEquals(productsPage.cartNumber.getText(),"1");
-
+        Assert.assertEquals(productsPage.cartNumber.getText(), "1");
 
 
     }
@@ -36,30 +35,39 @@ public class ProductsPageTest extends BaseTest {
         productsPage.emptyCart();
         productsPage.clickOnAddButton(0);
         productsPage.clickOnAddButton(1);
-        Assert.assertEquals(productsPage.cartNumber.getText(),"2");
+        Assert.assertEquals(productsPage.cartNumber.getText(), "2");
 
 
+    }
+
+    @Test
+    public void userCanAddAllProducts() {
+        productsPage.emptyCart();
+        for (int i = 0; i<productsPage.addToCartButtons.size();i++ ){
+            productsPage.clickOnAddButton(i);
+        }
+        Assert.assertEquals(productsPage.cartNumber.getText(),"6");
     }
 
     @Test
     public void userCanRemoveProduct() {
         productsPage.emptyCart();
         productsPage.clickOnAddButton(0);
-        Assert.assertEquals(productsPage.cartNumber.getText(),"1");
+        Assert.assertEquals(productsPage.cartNumber.getText(), "1");
         productsPage.clickOnRemoveButton(0);
         productsPage.emptyCart();
 
 
-
     }
+
 
 
     @Test
     public void userCanSortProducts() {
         String ZtoA = "za";
         String AtoZ = "az";
-        String lowToHigh ="lohi";
-        String hightoLow ="hilo";
+        String lowToHigh = "lohi";
+        String hightoLow = "hilo";
         productsPage.clickOnSortDropdown(lowToHigh);
         Assert.assertTrue(productsPage.sortDropdown.getText().contains("low to high"));
 
