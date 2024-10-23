@@ -83,23 +83,23 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void userCanNotLoginWithBlankUseraname()  {
+    public void userCanNotLoginWithBlankUseraname() {
         String validPassword = excelReader.getStringData("Sheet1", 1, 1);
 
+        loginPage.usernameField.clear();
         loginPage.inputPasswordField(validPassword);
         loginPage.clickOnLoginButton();
         Assert.assertTrue(loginPage.errorMessage.isDisplayed());
 
 
-
-
     }
 
     @Test
-    public void userCanNotLoginWithBlankPassword()  {
+    public void userCanNotLoginWithBlankPassword() {
         String validUseraname = excelReader.getStringData("Sheet1", 1, 0);
 
         loginPage.inputUsernameField(validUseraname);
+        loginPage.passwordField.clear();
         loginPage.clickOnLoginButton();
         Assert.assertTrue(loginPage.errorMessage.isDisplayed());
 
@@ -108,15 +108,15 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void userCanLoginUsingEnterButton() throws InterruptedException {
-            String validUseraname = excelReader.getStringData("Sheet1", 1, 0);
-            String validPassword = excelReader.getStringData("Sheet1", 1, 1);
+        String validUseraname = excelReader.getStringData("Sheet1", 1, 0);
+        String validPassword = excelReader.getStringData("Sheet1", 1, 1);
 
 
-            loginPage.inputUsernameField(validUseraname);
-            loginPage.inputPasswordField(validPassword);
-            loginPage.enterLoginButton();
-            Thread.sleep(2000);
-            Assert.assertTrue(productsPage.burgerMenu.isDisplayed());
+        loginPage.inputUsernameField(validUseraname);
+        loginPage.inputPasswordField(validPassword);
+        loginPage.enterLoginButton();
+        Thread.sleep(2000);
+        Assert.assertTrue(productsPage.burgerMenu.isDisplayed());
 
 
     }
@@ -136,10 +136,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.loginButton.isDisplayed());
 
 
-
     }
-
-
 
 
 }
